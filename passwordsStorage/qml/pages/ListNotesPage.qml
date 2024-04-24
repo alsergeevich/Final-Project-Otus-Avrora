@@ -1,6 +1,10 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
+//страница для отображения записей и работы с ними
+
+
 Page {
     id: page
     objectName: "mainPage"
@@ -25,7 +29,7 @@ Page {
                 menu: ContextMenu {
                     id: contextmenu
                     MenuItem {
-                        text: qsTr("редактировать")
+                        text: qsTr("edit")
                         onClicked: {
                             var dialog = pageStack.push(Qt.resolvedUrl("CreateRecordDialog.qml"))
                             var id = parseInt(rowid)
@@ -36,7 +40,7 @@ Page {
                         }
                     }
                     MenuItem {
-                        text: qsTr("удалить")
+                        text: qsTr("delete")
                         onClicked: {
                             var id = parseInt(rowid)
                             console.log("id = " + id)
@@ -130,10 +134,9 @@ Page {
                 id: txtSearch
                 anchors.top: pheader.bottom
                 anchors.topMargin: 5
-                placeholderText: qsTr("поиск по логину или url")
+                placeholderText: qsTr("search by login or url")
                 onTextChanged: {
-                    if(txtSearch.length > 0) {
-                        console.log("Search")
+                    if(txtSearch.length > 0) {                       
                         readSearch()
                     }
                     else {
@@ -151,7 +154,7 @@ Page {
             icon.source: "qrc:/image/add.png"
             icon.scale: 0.4
             onClicked: {
-                var dialog = pageStack.push(Qt.resolvedUrl("CreateRecordDialog.qml"))                
+                var dialog = pageStack.push(Qt.resolvedUrl("CreateRecordDialog.qml"))
                 dialog.onAccepted.connect(function () { passwordManager.insertRecord(dialog.url, dialog.login, dialog.password)})
             }
         }
@@ -161,10 +164,24 @@ Page {
             anchors.top: txtSearch.bottom
             anchors.right: parent.right
             anchors.topMargin: 5
-            icon.source: "qrc:/image/exit.png"
-            icon.scale: 0.4
+            icon.source: "qrc:/image/exit2.png"
+            icon.scale: 0.5
             onClicked: {
                 var dialog = pageStack.push(Qt.resolvedUrl("MainPage.qml"))
+
+            }
+        }
+
+        IconButton {
+            id: btn3
+            anchors.right: btn2.left
+            anchors.rightMargin: 20
+            anchors.top: txtSearch.bottom
+            anchors.topMargin: 5
+            icon.source: "qrc:/image/set.png"
+            icon.scale: 0.4
+            onClicked: {
+                var dialog = pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
 
             }
         }
@@ -172,7 +189,7 @@ Page {
     function readAll() {
         var record = passwordManager.getRecords()
         count_records = String(record.length)
-        pheader.title = qsTr("Всего записей: ") + count_records
+        pheader.title = qsTr("Total records: ") + count_records
         listmodel.clear()
         for(var i = 0; i < record.length; ++i) {
             listmodel.append({"rowid": record[i][0], "url": record[i][1], "login": record[i][2], "password": record[i][3] });
@@ -182,7 +199,7 @@ Page {
     function readSearch() {
         var record = passwordManager.searchRecords(txtSearch.text)
         count_records = String(record.length)
-        pheader.title = qsTr("Найдено записей: ") + count_records
+        pheader.title = qsTr("Records found: ") + count_records
         listmodel.clear()
         for(var i = 0; i < record.length; ++i) {
             listmodel.append({"rowid": record[i][0], "url": record[i][1], "login": record[i][2], "password": record[i][3] });

@@ -17,11 +17,11 @@ public:
     ~PasswordModel();
 
 
-    QList<QVariant>& setQuery(QSqlQuery &query);
-    void clearModel();
+    QList<QVariant>& setQuery(QSqlQuery &query); //создаёт модель данных из базы для модели в QML
+    void clearModel();                                                //очищает модель
 
 private:
-    QList<QVariant> m_data; // Data storage for the model
+    QList<QVariant> m_data;                                      //модель данных
 };
 
 
@@ -35,17 +35,17 @@ public:
     explicit PasswordManager(QObject *parent = nullptr);
     ~PasswordManager();
 
-    Q_INVOKABLE bool insertRecord(const QString &url, const QString &login, const QString &password);
-    Q_INVOKABLE bool updateRecord(int id, const QString &url, const QString &login, const QString &password);
-    Q_INVOKABLE bool deleteRecord(int id);
-    Q_INVOKABLE QList<QVariant> getRecords();
-    Q_INVOKABLE QList<QVariant> searchRecords(const QString &searchTerm);
-    Q_INVOKABLE bool saveEncryptionKey(const QString &key);
-    Q_INVOKABLE QString getEncryptionKey();
-    Q_INVOKABLE bool isFirstRun();
-    Q_INVOKABLE void dropTable();
-    Q_INVOKABLE bool comparePasswords(QString passw);
-    Q_INVOKABLE QString getDecriptionPassword(QString password, QString key);
+    Q_INVOKABLE bool insertRecord(const QString &url, const QString &login, const QString &password);             //вставка записи в БД
+    Q_INVOKABLE bool updateRecord(int id, const QString &url, const QString &login, const QString &password);  //обновление записи в БД
+    Q_INVOKABLE bool deleteRecord(int id);                                                                                                           //удаление записи из БД
+    Q_INVOKABLE QList<QVariant> getRecords();                                                                                                  //получение всех записей из БД
+    Q_INVOKABLE QList<QVariant> searchRecords(const QString &searchTerm);                                                  //поиск в БД
+    Q_INVOKABLE bool saveEncryptionKey(const QString &key);                                                                          //сохранение ключа шифрования в БД
+    Q_INVOKABLE QString getEncryptionKey();                                                                                                    //извлечение ключа шифрования из БД
+    Q_INVOKABLE bool isFirstRun();                                                                                                                      //проверка на момент впервые ли запущено приложение
+    Q_INVOKABLE void dropTable();                                                                                                                       //удаление таблиц из БД
+    Q_INVOKABLE bool comparePasswords(QString passw);                                                                                 //сравнение введённого пароля и заданного
+    Q_INVOKABLE QString getDecriptionPassword(QString password, QString key);                                             //расшифровка пароля для отображения
 
 
 private:
@@ -59,7 +59,7 @@ private:
 
 
 signals:
-     void modelChanged();
+     void modelChanged();                                                                                                                                     //сигнал об изменении модели
 };
 
 #endif // PASSWORDMANAGER_H

@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-
+//страница для создания и редактирования записи
 Dialog {
     id: dialogCreate
     allowedOrientations: Orientation.All
@@ -15,8 +15,8 @@ Dialog {
         anchors.fill: parent
         spacing: 5
         DialogHeader {
-            acceptText: qsTr("Сохранить")
-            cancelText: qsTr("Отменить")
+            acceptText: qsTr("Save")
+            cancelText: qsTr("Cancel")
         }
 
         TextField {
@@ -24,21 +24,21 @@ Dialog {
             width: parent.width
             maximumLength: 22
             text: url
-            placeholderText: qsTr("название ресурса")
+            placeholderText: qsTr("resource name")
         }
         TextField {
             id: txtLogin
             width: parent.width
             maximumLength: 22
             text: login
-            placeholderText: qsTr("логин")
+            placeholderText: qsTr("login")
         }
         TextField {
             id: txtPassword
             width: parent.width
             maximumLength: 22
             text: password
-            placeholderText: qsTr("пароль")
+            placeholderText: qsTr("password")
         }
     }
     onAccepted: {

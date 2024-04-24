@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+//страница входа
 
 Page {
     id: mainPage
@@ -14,13 +15,13 @@ Page {
         spacing: Theme.paddingLarge
         PageHeader {
             id: pheader
-            title: qsTr("Вход в хранилище")
+            title: qsTr("Vault entrance")
         }
 
         PasswordField {
             id: txtfield
             showEchoModeToggle: true
-            placeholderText: qsTr("введите пароль")
+            placeholderText: qsTr("enter password")
         }
 
         Label {
@@ -35,7 +36,7 @@ Page {
             id: btn
             anchors.horizontalCenter: parent.horizontalCenter
             preferredWidth: Theme.buttonWidthMedium
-            text: qsTr("Войти")
+            text: qsTr("sign in")
 
             onClicked: {
 
@@ -44,7 +45,7 @@ Page {
                     pageStack.push(Qt.resolvedUrl("ListNotesPage.qml"))
                 }
                 else {
-                    lblError.text = qsTr("неверный пароль")
+                    lblError.text = qsTr("Incorrect password")
                 }
             }
         }

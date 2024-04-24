@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-
+//страница для установки пароля для входа и он же используется как ключ шифрования
 Page {
     id: passwPage
     objectName: "passwPage"
@@ -12,20 +12,20 @@ Page {
         spacing: Theme.paddingLarge
         PageHeader {
             id: pheader
-            title: qsTr("Установите пароль и запомните его")
+            title: qsTr("Set a password and remember it")
         }
 
         TextField {
             id: txtFieldPassw
 
-            placeholderText: qsTr("введите пароль")
+            placeholderText: qsTr("enter password")
         }
 
         Button {
             id: btn1
             anchors.horizontalCenter: parent.horizontalCenter
             preferredWidth: Theme.buttonWidthMedium
-            text: qsTr("Сохранить")
+            text: qsTr("Save")
             enabled: txtFieldPassw.text.length >= 6
 
             onClicked: {

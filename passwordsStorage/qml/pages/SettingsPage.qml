@@ -1,13 +1,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+//страница настроек
+
 Page {
 
     objectName: "mainPage"
     allowedOrientations: Orientation.All
     PageHeader {
         id: pheader
-        title: qsTr("Страница для удаления базы")
+        title: qsTr("Page for deleting the database")
     }
 
     IconButton {
