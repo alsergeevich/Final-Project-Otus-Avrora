@@ -44,7 +44,7 @@ PasswordManager::PasswordManager(QObject *parent) : QObject(parent)
 {
     backend = new Backend;
 
-    dbDirPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+    dbDirPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     dbaseName = QDir(dbDirPath).absoluteFilePath(DBNAME);
 
     if (!QDir().exists(dbDirPath)) {

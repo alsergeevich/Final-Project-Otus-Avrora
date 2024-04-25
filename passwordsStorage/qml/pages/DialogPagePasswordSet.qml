@@ -1,11 +1,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
+import passwordmanager 1.0
 //страница для установки пароля для входа и он же используется как ключ шифрования
 Page {
     id: passwPage
     objectName: "passwPage"
     allowedOrientations: Orientation.All
+
+    PasswordManager {
+        id: passwordManager
+    }
 
     Column {
         width: parent.width

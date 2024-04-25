@@ -40,17 +40,17 @@
 <context>
     <name>DialogPagePasswordSet</name>
     <message>
-        <location filename="../qml/pages/DialogPagePasswordSet.qml" line="15"/>
+        <location filename="../qml/pages/DialogPagePasswordSet.qml" line="19"/>
         <source>Set a password and remember it</source>
         <translation>Придумайте пароль и запомните его</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DialogPagePasswordSet.qml" line="21"/>
+        <location filename="../qml/pages/DialogPagePasswordSet.qml" line="25"/>
         <source>enter password</source>
         <translation>введите пароль</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DialogPagePasswordSet.qml" line="28"/>
+        <location filename="../qml/pages/DialogPagePasswordSet.qml" line="32"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
